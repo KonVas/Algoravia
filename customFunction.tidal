@@ -1,0 +1,25 @@
+let x speedAmount p = rev $ (|* speedAmount) $ p
+
+  d2 $ every 6 (rev) $ jux rev $ chunk 4 (fast 2 . (|- n 12)) $ off 0.25 (|+ 7) $ struct (iter 4 "t(5,8)") $ n (scale "bartok" "0 .. 7") # sound "superpiano"
+
+d2 $ off 0.125 (# crush (x)) $ sound "bd [~ sn:2] mt lt*2"
+
+d1 $ foldEvery [3, 6] (16.25 ~>) $ stack [
+sound "bd*2",
+every 6 (rev) $  jux rev $ sound "bd [~ sn:2] mt lt*2",
+sound "cp*2(3, 8)" |*| gain 0.8,
+rarely (# crush 4) $ sound "wobble" +| gain 0.8,
+rarely (# crush 4) $ sound "bass [~ bass:1] bass*8" +| gain 5 |+ speed 0.3 |+ resonance 1220,
+slowcat [
+sound (samples "ifdrums*8" (run 2)),
+sometimes (# crush (irand 5)) $ sound (samples "drum*8" (run 2)),
+sometimes (# pan (irand 2)) |+| rarely (# crush 3) $ sound (samples "808*8" (run 8)),
+sound (samples "glitch*8" (run 8)) |*| speed 8 |+| gain 1.1 |+| pan (irand 2)
+]
+] |+| unit "c" |+| speed 8 |*| gain 1 |+ pan 1
+
+d2 silence
+
+setcps (220/200)
+
+hush

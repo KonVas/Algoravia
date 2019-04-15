@@ -1,0 +1,59 @@
+d1 $ every 1 (slow 8) $ sound "808bd"
+# gain "1.2"
+# legato 0.1
+# speed 0.8
+|*| pan saw
+
+setcps 1
+
+d1 $ sound "bd"
+
+hush
+
+d2 $ sound "hh*2"
+
+
+d1 silence
+
+d5 $ chop 4
+$ striate 1
+$ jux (rev)
+$ slow 2
+$ "bd sd ~ ~ sd hh hh sd"
+# cutoff (range 1240 440 $ fast 4 $ sine)
+# resonance "1"
+# pan rand
+# gain "0.7"
+# crush (irand 2)
+
+
+
+
+
+d5 silence
+
+d4 $ jux (rev)
+$ every 4 (fast 3)
+$ sound "made:5 made:4 made:5 ~"
+#gain "0.7"
+# pan sine
+
+
+setcps 2
+
+d2 $ jux (rev)
+$ sound "hh*2"
+# n (irand 16)
+# cutoff (range 1240 210 $ fast 4 $ sine)
+# resonance "0.5"
+# pan rand
+
+ d3 $ slow 8
+ $ "bd bd sd [bd bd] sd bd"*3
+# room "0.8"
+# gain "0.4"
+# n (irand 16)
+# vowel "a o"
+
+
+ d5 silence
